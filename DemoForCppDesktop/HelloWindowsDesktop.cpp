@@ -121,25 +121,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     switch (message)
     {
-    case WM_PAINT:
-        hdc = BeginPaint(hWnd, &ps);
+        case WM_PAINT:
+            hdc = BeginPaint(hWnd, &ps);
 
-        // Here your application is laid out.
-        // For this introduction, we just print out "Hello, Windows desktop!"
-        // in the top left corner.
-        TextOut(hdc,
-            5, 5,
-            greeting, _tcslen(greeting));
-        // End application-specific layout section.
+            // Here your application is laid out.
+            // For this introduction, we just print out "Hello, Windows desktop!"
+            // in the top left corner.
+            TextOut(hdc,
+                5, 5,
+                greeting, _tcslen(greeting));
+            // End application-specific layout section.
 
-        EndPaint(hWnd, &ps);
-        break;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
-        break;
+            EndPaint(hWnd, &ps);
+            break;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
+            break;
     }
 
     return 0;
